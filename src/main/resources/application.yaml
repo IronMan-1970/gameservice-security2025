@@ -1,9 +1,9 @@
 spring:
-  security:
-    user:
-      name: admin
-      password: 123456
-      roles: ADMIN
+#  security:
+#    user:
+#      name: admin
+#      password: 123456
+#      roles: ADMIN
   application:
     name: gameservice
   data:

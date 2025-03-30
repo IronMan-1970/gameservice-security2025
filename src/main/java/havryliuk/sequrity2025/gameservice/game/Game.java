@@ -21,10 +21,10 @@ import org.springframework.data.annotation.Id;
 public class Game {
 
     @Id
-    String id;
-    String name;
-    String description;
-    int sells;
+    private String id;
+    private String name;
+    private String description;
+    private int sells;
 
     public String getId() {
         return id;
