@@ -10,6 +10,7 @@ package havryliuk.sequrity2025.gameservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -37,7 +38,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests( req ->
                         req.requestMatchers("/index.html").permitAll()
                                 .requestMatchers("/api/v1/games/hello/unknown").permitAll()
-                                .requestMatchers("/api/v1/games/hello/admin").hasRole("ADMIN")
+                                .requestMatchers("/api/v1/games/hello/admin").hasAnyRole("SUPERADMIN", "ADMIN")
+                                .requestMatchers(HttpMethod.POST).hasAnyRole("SUPERADMIN", "ADMIN")
+                                .requestMatchers(HttpMethod.PUT).hasAnyRole("SUPERADMIN", "ADMIN")
+                                .requestMatchers(HttpMethod.DELETE).hasRole("SUPERADMIN")
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();

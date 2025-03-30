@@ -1,55 +1,243 @@
-###
+### 1)
 GET http://localhost:8080/api/v1/games/hello/admin
 Authorization: Basic admin admin
 Accept: application/json
 ###
-###
+
+### 2)
 GET http://localhost:8080/api/v1/games/hello/admin
 Authorization: Basic user user
 Accept: application/json
 ###
-###
+
+### 3)
 GET http://localhost:8080/api/v1/games/hello/admin
 ###
 
-###
+### 4)
 GET http://localhost:8080/api/v1/games/hello/user
 Authorization: Basic admin admin
 Accept: application/json
 ###
-###
+
+### 5)
 GET http://localhost:8080/api/v1/games/hello/user
 Authorization: Basic user user
 Accept: application/json
 ###
-###
+
+### 6)
 GET http://localhost:8080/api/v1/games/hello/user
 ###
 
-###
+### 7)
 GET http://localhost:8080/api/v1/games/hello/unknown
 Authorization: Basic admin admin
 Accept: application/json
 ###
-###
+
+### 8)
 GET http://localhost:8080/api/v1/games/hello/unknown
 Authorization: Basic user user
 Accept: application/json
 ###
-###
+
+### 9)
 GET http://localhost:8080/api/v1/games/hello/unknown
 ###
 
-###
+### 10)
 GET http://localhost:8080/index.html
 Authorization: Basic admin admin
 Accept: application/json
 ###
-###
+
+### 11)
 GET http://localhost:8080/index.html
 Authorization: Basic user user
 Accept: application/json
 ###
-###
+
+### 12)
 GET http://localhost:8080/index.html
 ###
+
+
+### CRUD----------------------------------------------------------------------------------->
+
+
+### GET ALL GAMES-------------------------------------------------------------------------->
+
+### 13)
+GET http://localhost:8080/api/v1/games/
+Authorization: Basic admin admin
+Accept: application/json
+###
+
+### 14)
+GET http://localhost:8080/api/v1/games/
+Authorization: Basic user user
+Accept: application/json
+###
+
+### 15)
+GET http://localhost:8080/api/v1/games/
+Authorization: Basic superadmin superadmin
+Accept: application/json
+###
+
+### 16)
+GET http://localhost:8080/api/v1/games/
+###
+
+
+### GET ONE GAME------------------------------------------------------------------------->
+
+### 17)
+GET http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Authorization: Basic admin admin
+Accept: application/json
+###
+
+### 18)
+GET http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Authorization: Basic user user
+Accept: application/json
+###
+
+### 19)
+GET http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Authorization: Basic superadmin superadmin
+Accept: application/json
+###
+
+### 20)
+GET http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+###
+
+
+### DELETE ONE GAME---------------------------------------------------------------------->
+
+### 21)
+DELETE http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Authorization: Basic admin admin
+Accept: application/json
+###
+
+### 22)
+DELETE http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Authorization: Basic user user
+Accept: application/json
+###
+
+### 23)
+DELETE http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Authorization: Basic superadmin superadmin
+Accept: application/json
+###
+
+### 24)
+DELETE http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+###
+
+### CREATE ONE GAME------------------------------------------------------------------------->
+
+### 25)
+POST http://localhost:8080/api/v1/games/
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "name": "TLOU",
+  "description": "The Last Of Us",
+  "sells": 1000000
+}
+###
+
+### 26)
+POST http://localhost:8080/api/v1/games/
+Authorization: Basic superadmin superadmin
+Content-Type: application/json
+
+{
+  "name": "TLOU",
+  "description": "The Last Of Us",
+  "sells": 1000000
+}
+###
+
+### 27)
+POST http://localhost:8080/api/v1/games/
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "name": "TLOU",
+  "description": "The Last Of Us",
+  "sells": 1000000
+}
+###
+
+### 28)
+POST http://localhost:8080/api/v1/games/
+
+{
+  "name": "TLOU",
+  "description": "The Last Of Us",
+  "sells": 1000000
+}
+###
+
+
+### UPDATE ONE GAME------------------------------------------------------------------------->
+
+### 29)
+PUT http://localhost:8080/api/v1/games/0
+Authorization: Basic admin admin
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "GOW",
+  "description": "God Of War",
+  "sells": 2000000
+}
+###
+
+### 30)
+PUT http://localhost:8080/api/v1/games/0
+Authorization: Basic superadmin superadmin
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "GOW",
+  "description": "God Of War",
+  "sells": 2000000
+}
+###
+
+### 31)
+PUT http://localhost:8080/api/v1/games/0
+Authorization: Basic user user
+Content-Type: application/json
+
+{
+  "id": "2",
+  "name": "GOW",
+  "description": "God Of War",
+  "sells": 2000000
+}
+### 32)
+
+###
+PUT http://localhost:8080/api/v1/games/0
+
+{
+  "id": "2",
+  "name": "GOW",
+  "description": "God Of War",
+  "sells": 2000000
+}
+###
+
