@@ -1,0 +1,13 @@
+spring:
+  security:
+    user:
+      name: admin
+      password: 123456
+      roles: ADMIN
+  application:
+    name: gameservice
+  data:
+    mongodb:
+      database: GamesDataBase
+      host: localhost
+      port: 27017

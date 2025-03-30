@@ -1,0 +1,38 @@
+### GET ALL GAMES
+GET http://localhost:8080/api/v1/games
+
+###
+
+### GET ONE GAME
+GET http://localhost:8080/api/v1/games/2
+
+###
+
+### DELETE ONE GAME
+DELETE http://localhost:8080/api/v1/games/67e7f246ef79d0581d7594f9
+
+###
+
+### CREATE ONE GAME
+POST http://localhost:8080/api/v1/games
+Content-Type: application/json
+
+{
+  "name": "TLOU",
+  "description": "The Last Of Us",
+  "sells": 1000000
+}
+### UPDATE ONE GAME
+PUT http://localhost:8080/api/v1/games/67e7f25cef79d0581d7594fa
+Content-Type: application/json
+
+{
+  "id" : "",
+  "name": "GOW",
+  "description": "God Of War",
+  "sells": 2000000
+}
+
+
+###
+
