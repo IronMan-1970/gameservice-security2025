@@ -8,9 +8,11 @@ package havryliuk.sequrity2025.gameservice.config;
   @since 30.03.25 - 12.12
  */
 
+import org.springframework.aop.Advisor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,6 +28,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    public static Advisor preAuthorizeMethodInterceptor(){
+        return AuthorizationManagerBeforeMethodInterceptor.preAuthorize();
+    }
     @Bean
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -37,11 +42,11 @@ public class SecurityConfig {
         http.csrf(csrf ->csrf.disable())
                 .authorizeHttpRequests( req ->
                         req.requestMatchers("/index.html").permitAll()
-                                .requestMatchers("/api/v1/games/hello/unknown").permitAll()
-                                .requestMatchers("/api/v1/games/hello/admin").hasAnyRole("SUPERADMIN", "ADMIN")
-                                .requestMatchers(HttpMethod.POST).hasAnyRole("SUPERADMIN", "ADMIN")
-                                .requestMatchers(HttpMethod.PUT).hasAnyRole("SUPERADMIN", "ADMIN")
-                                .requestMatchers(HttpMethod.DELETE).hasRole("SUPERADMIN")
+//                                .requestMatchers("/api/v1/games/hello/unknown").permitAll()
+//                                .requestMatchers("/api/v1/games/hello/admin").hasAnyRole("SUPERADMIN", "ADMIN")
+//                                .requestMatchers(HttpMethod.POST).hasAnyRole("SUPERADMIN", "ADMIN")
+//                                .requestMatchers(HttpMethod.PUT).hasAnyRole("SUPERADMIN", "ADMIN")
+//                                .requestMatchers(HttpMethod.DELETE).hasRole("SUPERADMIN")
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();

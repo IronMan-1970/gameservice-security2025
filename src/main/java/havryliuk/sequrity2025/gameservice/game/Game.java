@@ -18,7 +18,7 @@ import org.springframework.data.annotation.Id;
 @Builder
 @Getter
 @Setter
-public class Game {
+public class Game extends AuditMetaDate {
 
     @Id
     private String id;
