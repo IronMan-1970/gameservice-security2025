@@ -17,9 +17,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/games/")
 public class CameController {
-    @Autowired
-    GameService gameService;
+    private final GameService gameService;
 
+    @Autowired
+    public CameController(GameService gameService) {
+        this.gameService = gameService;
+    }
 
     @RequestMapping()
     @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
@@ -52,8 +55,9 @@ public class CameController {
 
     }
 
+
+    @GetMapping("hello/user")
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/hello/user")
     public String helloUser() {
         return "Hello User!";
     }
