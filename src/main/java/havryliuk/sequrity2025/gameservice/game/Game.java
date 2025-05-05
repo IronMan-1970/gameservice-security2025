@@ -19,24 +19,10 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 public class Game extends AuditMetaDate {
-
     @Id
     private String id;
     private String name;
     private String description;
     private int sells;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public Game(String name, String description, int sells) {
-        this.name = name;
-        this.description = description;
-        this.sells = sells;
-    }
 }
